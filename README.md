@@ -8,7 +8,8 @@ This repository contains a Terraform project to deploy the [Istio Bookinfo](http
 
 ## 📊 Architecture Diagram
 
-![Bookinfo Architecture](./86695625-e80e-4f2e-a86a-258d870af96e.png)
+![image](https://github.com/user-attachments/assets/5b86c119-430b-453a-b38a-1c2114e112a6)
+
 
 > Based on: [Istio's official Bookinfo YAML](https://github.com/istio/istio/blob/master/samples/bookinfo/platform/kube/bookinfo.yaml)
 
@@ -23,22 +24,34 @@ This repository contains a Terraform project to deploy the [Istio Bookinfo](http
 | `reviews`     | 3 Deployments, Service, SA    |
 | `productpage` | Deployment, Service, SA       |
 
-.
-├── tf-bookinfo-deployment/ # All Bookinfo services, grouped by microservice version
-│ ├── details-v1/ # Terraform manifests for details-v1
-│ ├── productpage-v1/ # Terraform manifests for productpage-v1
-│ ├── ratings-v1/ # Terraform manifests for ratings-v1
-│ └── reviews/ # Contains reviews-v1, reviews-v2, reviews-v3
-├── tf-bookinfo-pods/ # (Optional) Pod-level manifests if needed
-├── tf-bookinfo-rs/ # (Optional) ReplicaSet-level manifests
-├── docs/ # Architecture diagrams and documentation
-│ └── bookinfo-architecture.png
-├── main.tf # Provider configuration and root definitions
-├── variables.tf # Shared variables
-├── outputs.tf # Terraform outputs (if needed)
-├── versions.tf # Provider version pinning
-├── .gitignore # Ignore local state and temp files
-└── README.md # This documentation
+
+🔍 Application UI Preview
+![image](https://github.com/user-attachments/assets/3739a5dc-3d5b-42a3-b5c7-f55633a51db5)
+
+### 📦 Running Pods Overview
+
+```bash
+$ kubectl get pods -o wide
+NAME                              READY   STATUS    RESTARTS   AGE     IP          NODE         NOMINATED NODE   READINESS GATES
+details-v1-766844796b-zsgm2       1/1     Running   0          7h59m   <hidden>    132-worker    <none>           <none>
+details-v1-pod                    1/1     Running   0          52m     <hidden>    132-worker2   <none>           <none>
+details-v1-rc-6n6d2               1/1     Running   0          14m     <hidden>    132-worker3   <none>           <none>
+details-v1-rc-hklw5               1/1     Running   0          14m     <hidden>    132-worker    <none>           <none>
+details-v1-rc-jk5gk               1/1     Running   0          14m     <hidden>    132-worker2   <none>           <none>
+productpage-v1-54bb874995-9dds4   1/1     Running   0          6h5m    <hidden>    132-worker2   <none>           <none>
+productpage-v1-pod                1/1     Running   0          52m     <hidden>    132-worker2   <none>           <none>
+productpage-v1-rc-g6m5q           1/1     Running   0          6m5s    <hidden>    132-worker2   <none>           <none>
+ratings-v1-5dc79b6bcd-ffdxz       1/1     Running   0          7h54m   <hidden>    132-worker3   <none>           <none>
+ratings-v1-pod                    1/1     Running   0          52m     <hidden>    132-worker    <none>           <none>
+ratings-v1-rc-gsm9q               1/1     Running   0          60s     <hidden>    132-worker3   <none>           <none>
+reviews-v1-5594f9f46d-tn49h       1/1     Running   0          7h1m    <hidden>    132-worker2   <none>           <none>
+reviews-v1-pod                    1/1     Running   0          52m     <hidden>    132-worker3   <none>           <none>
+reviews-v2-78c54884d-m8nnj        1/1     Running   0          7h1m    <hidden>    132-worker    <none>           <none>
+reviews-v2-pod                    1/1     Running   0          52m     <hidden>    132-worker    <none>           <none>
+reviews-v3-cbb65f848-69fm7        1/1     Running   0          7h1m    <hidden>    132-worker3   <none>           <none>
+reviews-v3-pod                    1/1     Running   0          52m     <hidden>    132-worker2   <none>           <none>
+
+```
 
 All resources are created using `kubernetes_manifest` blocks for maximum compatibility and version flexibility.
 
