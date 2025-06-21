@@ -1,4 +1,4 @@
-# 🚀 Terraform Kubernetes: Bookinfo App (Istio Sample)
+# 🚀 Terraform Kubernetes: Bookinfo App
 
 This repository contains a Terraform project to deploy the [Istio Bookinfo](https://istio.io/latest/docs/examples/bookinfo/) sample application on Kubernetes using the stable `kubernetes` provider with native Terraform Kubernetes resources.
 
