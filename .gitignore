@@ -1,0 +1,27 @@
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+*.tfstate
+*.tfstate.*
+
+# Terraform plan output
+*.tfplan
+
+# Sensitive variable overrides
+*.auto.tfvars
+*.auto.tfvars.json
+terraform.tfvars
+terraform.tfvars.json
+
+# Terraform CLI local settings
+.terraform/
+.terraform.lock.hcl
+
+# VS Code / JetBrains IDEs / OS-specific
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Logs or debug output (optional)
+*.log
