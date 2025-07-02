@@ -9,7 +9,7 @@ resource "kubernetes_replication_controller" "details_rc" {
   }
 
   spec {
-    replicas = 3
+    replicas = 1
     selector = {
       app     = "details-rs"
       version = "v1"

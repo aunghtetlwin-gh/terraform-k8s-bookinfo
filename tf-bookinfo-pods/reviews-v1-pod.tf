@@ -4,7 +4,7 @@ resource "kubernetes_pod" "reviews_v1" {
     name      = "reviews-v1-pod"
     namespace = var.namespace
     labels = {
-      app     = "reviews"
+      app     = "reviews-pod"
       version = "v1"
     }
   }
@@ -53,7 +53,7 @@ resource "kubernetes_pod" "reviews_v2" {
     name      = "reviews-v2-pod"
     namespace = var.namespace
     labels = {
-      app     = "reviews"
+      app     = "reviews-pod"
       version = "v2"
     }
   }
@@ -102,7 +102,7 @@ resource "kubernetes_pod" "reviews_v3" {
     name      = "reviews-v3-pod"
     namespace = var.namespace
     labels = {
-      app     = "reviews"
+      app     = "reviews-pod"
       version = "v3"
     }
   }
